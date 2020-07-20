@@ -2,7 +2,7 @@
 
 ## Comparison
 
-Here are some keys that _seem_ similar between [current zap exports](https://github.com/toddmoy/node-based-zap-examples/tree/master/set-1) and [ZDL 0.2](https://github.com/zapier/zdl/blob/master/version_0.2.md). At this time, don't assume similar sounding things are definitely the same.
+Here are some keys that _seem_ similar between [some zap exports](https://github.com/toddmoy/node-based-zap-examples/tree/master/set-1) and [ZDL 0.2](https://github.com/zapier/zdl/blob/master/version_0.2.md). At this time, don't assume similar sounding things are definitely the same.
 
 | 0.2               | Export            | Notes                                                   |
 |:------------------|:------------------|:--------------------------------------------------------|
