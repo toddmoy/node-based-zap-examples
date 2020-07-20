@@ -1,0 +1,132 @@
+{
+  "metadata": { "version": 2 },
+  "zaps": [
+    {
+      "id": 1,
+      "title": "Product Design Meeting Bot",
+      "nodes": {
+        "1": {
+          "id": 1,
+          "paused": false,
+          "type_of": "read",
+          "params": {
+            "time_length": "2",
+            "search_term": "Product Design Meeting",
+            "calendarid": "zapier.com_0bsavs45otg4osa7nn57ongo7k@group.calendar.google.com",
+            "time_unit": "days"
+          },
+          "meta": {
+            "validation": {
+              "action": { "is_opened": true },
+              "webhook": { "is_opened": false },
+              "params": {
+                "invalid_mappings": {},
+                "is_valid": true,
+                "is_edited": true,
+                "is_opened": true
+              }
+            },
+            "selectedGives": {},
+            "parammap": { "calendarid": "#design Calendar", "time_unit": "" }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": null,
+          "root_id": null,
+          "action": "event_start",
+          "selected_api": "GoogleCalendarAPI",
+          "title": "Product Design Meeting Bot",
+          "authentication_id": "8259fdb1e0119a59d6fe35bea72f640e8a2afa2ae8a6e7ac6130386b44a9d604"
+        },
+        "2": {
+          "id": 2,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "content": "# Product Design Monthly\n The Product Design Monthly is a place where folks can update each other on their current projects, find opportunities to collaborate, and plan for future projects. \n\n**🎉 Every month, each product designer should post their updates in this doc to discuss on the last Tuesday of the month at 9am PST to discuss. You should update your section with the following info. **\n\n1. Any items you you want to talk about in the agenda \n2. Current and upcoming projects \n3. Comments/questions for your fellow researcher's projects \n4. ⏲ We'll use the first 10 minutes of the meeting to read each other's project notes. If there's something that you want the group to talk about, make sure to comment **➕1**. The topics with the most **➕1** will be discussed in our meeting. \n\n**📝 What should I write for my current and upcoming projects?** \n\n* What do you need help with next week? \n* What's something that's working well? \n* What's a project insight or two the team might find interesting? \n* What's the sentiment for this project? 💚 💔 💛 \n\n* * *\n\n## {{1__start__dateTime_pretty}}\n\n### AGENDA\n* Agenda items here …\n\n### Team Projects\n\n**Adam (team)** \n\n* Project: \n    * Problem: \n    * Sentiment: \n    * Where: \n\n**Evan (team)** \n\n* Project: \n    * Problem: \n    * Sentiment: \n    * Where: \n\n**Indiana (team)** \n\n* Project: \n    * Problem: \n    * Sentiment: \n    * Where: \n\n**Jon (team)** \n\n* Project: \n    * Problem: \n    * Sentiment: \n    * Where: \n\n**Mel (team)** \n\n* Project: \n    * Problem: \n    * Sentiment: \n    * Where: \n\n**Nick (team)** \n\n* Project: \n    * Problem: \n    * Sentiment: \n    * Where: \n\n**Tabitha (team)** \n\n* Project: \n    * Problem: \n    * Sentiment: \n    * Where: \n\n**Weston (team)** \n\n* Project: \n    * Problem: \n    * Sentiment: \n    * Where: ",
+            "folder": "TOTAOAtxE94",
+            "format": "markdown",
+            "title": "Product Design Weekly ({{1__start__dateTime_pretty}})"
+          },
+          "meta": {
+            "validation": {
+              "action": { "is_opened": true },
+              "webhook": { "is_opened": false },
+              "params": {
+                "invalid_mappings": {},
+                "is_valid": true,
+                "is_edited": true,
+                "is_opened": true
+              }
+            },
+            "selectedGives": {
+              "35911018__start__dateTime_pretty": "Event Begins (Pretty)"
+            },
+            "parammap": { "folder": "Product Design Weekly", "format": "" }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 1,
+          "root_id": 1,
+          "action": "document",
+          "selected_api": "QuipCLIAPI@1.10.0",
+          "title": null,
+          "authentication_id": "1052633b0ad958d020a010f2f960c3b68f2322eaf71a441864fc596f22abfa46"
+        },
+        "3": {
+          "id": 3,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "username": "PD Monthly Bot",
+            "add_edit_link": "false",
+            "text": "Howdy @group-productdesign - it's that time again, add your update to the Product Design Monthly quip doc this week so we can chat this Tuesday! {{2__thread__link}}",
+            "unfurl": "yes",
+            "as_bot": "yes",
+            "link_names": "yes",
+            "icon": ":party-wizard:",
+            "channel": "C024Y16JP",
+            "reply_broadcast": "no"
+          },
+          "meta": {
+            "validation": {
+              "action": { "is_opened": true },
+              "webhook": { "is_opened": false },
+              "params": {
+                "invalid_mappings": {},
+                "is_valid": true,
+                "is_edited": true,
+                "is_opened": true
+              }
+            },
+            "selectedGives": { "35911019__thread__link": "Thread Link" },
+            "parammap": { "channel": "design" }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 2,
+          "root_id": 1,
+          "action": "channel_message",
+          "selected_api": "SlackAPI",
+          "title": null,
+          "authentication_id": "8a8f69f909a26bbac5f55580420d318d8c04f7b88dad642ba7387b517d44424c"
+        }
+      }
+    }
+  ]
+}

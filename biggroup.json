@@ -1,0 +1,467 @@
+{
+  "metadata": { "version": 2 },
+  "zaps": [
+    {
+      "id": 8,
+      "title": "BigGroup™",
+      "nodes": {
+        "8": {
+          "id": 8,
+          "paused": false,
+          "type_of": "read",
+          "params": {
+            "time_unit": "days",
+            "time_length": "1",
+            "calendarid": "zapier.com_0bsavs45otg4osa7nn57ongo7k@group.calendar.google.com"
+          },
+          "meta": {
+            "selectedGives": {},
+            "validation": {
+              "action": { "is_opened": true },
+              "params": {
+                "is_valid": true,
+                "invalid_mappings": {},
+                "is_edited": true,
+                "is_opened": true
+              },
+              "webhook": { "is_opened": false }
+            },
+            "parammap": { "time_unit": "", "calendarid": "#design Calendar" },
+            "stepTitle": "Trigger One Day Before Event"
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": null,
+          "root_id": null,
+          "action": "event_start",
+          "selected_api": "GoogleCalendarAPI",
+          "title": "BigGroup™",
+          "authentication_id": "8259fdb1e0119a59d6fe35bea72f640e8a2afa2ae8a6e7ac6130386b44a9d604"
+        },
+        "9": {
+          "id": 9,
+          "paused": true,
+          "type_of": "filter",
+          "params": {
+            "filter_criteria": [
+              {
+                "id": 6052508432556839,
+                "value": "BigGroup",
+                "action": "continue",
+                "group": 6845317116426843,
+                "match": "icontains",
+                "key": "8__summary"
+              }
+            ]
+          },
+          "meta": {
+            "stepTitle": "Continue If Summary Contains BigGroups",
+            "parammap": {},
+            "selectedGives": {},
+            "validation": {
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true
+              },
+              "webhook": { "is_opened": false }
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 8,
+          "root_id": 8,
+          "action": "filter",
+          "selected_api": "FilterAPI",
+          "title": null,
+          "authentication_id": null
+        },
+        "10": {
+          "id": 10,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "type": "1",
+            "topic": "BigGroup™",
+            "when": "{{8__start__dateTime_pretty}}",
+            "duration": "{{8__duration_minutes}}"
+          },
+          "meta": {
+            "validation": {
+              "action": { "is_opened": true },
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true
+              },
+              "webhook": { "is_opened": false }
+            },
+            "parammap": { "type": "" },
+            "selectedGives": {
+              "74319200__start__dateTime_pretty": "Event Begins (Pretty)",
+              "74319200__duration_minutes": "Duration (minutes)"
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 9,
+          "root_id": 8,
+          "action": "create_meeting",
+          "selected_api": "ZoomCLIAPI@1.0.12",
+          "title": null,
+          "authentication_id": "5f6a4a9e7ba4f98e2b60dbea4ba4e1e864991a65ffe890d462272ec409bd0dab"
+        },
+        "11": {
+          "id": 11,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "unfurl": "false",
+            "text": "@group-productdesign - Reminder - BigGroup™ in 1 day!",
+            "as_bot": "yes",
+            "icon": ":full_moon:",
+            "add_edit_link": "true",
+            "channel": "C024Y16JP",
+            "reply_broadcast": "true",
+            "username": "BigGroup™ Bot",
+            "link_names": "yes"
+          },
+          "meta": {
+            "selectedGives": {},
+            "parammap": { "channel": "design" },
+            "validation": {
+              "action": { "is_opened": true },
+              "params": {
+                "is_valid": true,
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_edited": true
+              },
+              "webhook": { "is_opened": false }
+            },
+            "stepTitle": "One Day Reminder"
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 10,
+          "root_id": 8,
+          "action": "channel_message",
+          "selected_api": "SlackAPI",
+          "title": null,
+          "authentication_id": "bb189207feca2e2a52a67f931d164f72ec7c8ad9b024353f9285d153f293e09b"
+        },
+        "12": {
+          "id": 12,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "unfurl": "false",
+            "thread_ts": "{{11__ts}}",
+            "as_bot": "yes",
+            "icon": ":full_moon:",
+            "add_edit_link": "true",
+            "channel": "C024Y16JP",
+            "reply_broadcast": "no",
+            "username": "BigGroup™ Bot",
+            "link_names": "yes",
+            "text": "In 1 day, we'll all meet together as a BigGroup™ \n\nThis is a time to get feedback, brainstorm, get help with tedious work, discuss tools/techniques, do a retro, etc.\n\nThere is a different leader each week who will bring something to the group. @ev will be posting who the leader is here shortly. If he's OOO - please refer to the schedule here https://coda.io/d/Design-Team_dATDb-6dfPV/Review-Collabs_suB3j#_lu3qc"
+          },
+          "meta": {
+            "selectedGives": { "74319203__ts": "Ts" },
+            "parammap": { "thread_ts": "", "channel": "design" },
+            "validation": {
+              "action": { "is_opened": true },
+              "params": {
+                "is_valid": true,
+                "invalid_mappings": {},
+                "is_edited": true,
+                "is_opened": true
+              },
+              "webhook": { "is_opened": false }
+            },
+            "stepTitle": "One Day Reminder (Thread)"
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 11,
+          "root_id": 8,
+          "action": "channel_message",
+          "selected_api": "SlackAPI",
+          "title": null,
+          "authentication_id": "8a8f69f909a26bbac5f55580420d318d8c04f7b88dad642ba7387b517d44424c"
+        },
+        "13": {
+          "id": 13,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "handle_past": "1440",
+            "delay_until_date": "{{8__start__dateTime_pretty}} -1h"
+          },
+          "meta": {
+            "stepTitle": "Delay Until 1 Hour Before",
+            "parammap": {},
+            "selectedGives": {},
+            "validation": {
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true
+              },
+              "webhook": { "is_opened": false }
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 12,
+          "root_id": 8,
+          "action": "delay_until",
+          "selected_api": "DelayAPI",
+          "title": null,
+          "authentication_id": null
+        },
+        "14": {
+          "id": 14,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "channel": "C024Y16JP",
+            "text": "@group-productdesign - Reminder: BigGroup™ in 1 hr! We'll all join a Zoom call and the group leader will share something with the group for discussion.",
+            "as_bot": "yes",
+            "username": "BigGroup™ Bot",
+            "icon": ":full_moon:",
+            "add_edit_link": "yes",
+            "unfurl": "yes",
+            "link_names": "yes",
+            "thread_ts": "{{11__ts}}",
+            "reply_broadcast": "false"
+          },
+          "meta": {
+            "stepTitle": "One Hour Reminder (Thread)",
+            "parammap": {},
+            "selectedGives": {},
+            "validation": {
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true
+              },
+              "webhook": { "is_opened": false }
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 13,
+          "root_id": 8,
+          "action": "channel_message",
+          "selected_api": "SlackAPI",
+          "title": null,
+          "authentication_id": "8a8f69f909a26bbac5f55580420d318d8c04f7b88dad642ba7387b517d44424c"
+        },
+        "15": {
+          "id": 15,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "delay_until_date": "{{8__start__dateTime_pretty}}",
+            "handle_past": "1440"
+          },
+          "meta": {
+            "stepTitle": "Delay Until Event Start",
+            "parammap": {},
+            "selectedGives": {},
+            "validation": {
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true
+              },
+              "webhook": { "is_opened": false }
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 14,
+          "root_id": 8,
+          "action": "delay_until",
+          "selected_api": "DelayAPI",
+          "title": null,
+          "authentication_id": null
+        },
+        "16": {
+          "id": 16,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "unfurl": "false",
+            "thread_ts": "{{11__ts}}",
+            "as_bot": "yes",
+            "icon": ":full_moon:",
+            "add_edit_link": "true",
+            "channel": "C024Y16JP",
+            "reply_broadcast": "no",
+            "username": "BigGroup™ Bot",
+            "link_names": "yes",
+            "text": "@group-productdesign - it's go time -> {{10__join_url}}"
+          },
+          "meta": {
+            "selectedGives": {
+              "74319203__ts": "Ts",
+              "74319202__join_url": "Join URL"
+            },
+            "parammap": { "thread_ts": "", "channel": "design" },
+            "validation": {
+              "action": { "is_opened": true },
+              "params": {
+                "is_valid": true,
+                "invalid_mappings": {},
+                "is_edited": true,
+                "is_opened": true
+              },
+              "webhook": { "is_opened": false }
+            },
+            "stepTitle": "Event Start Reminder (Thread)"
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 15,
+          "root_id": 8,
+          "action": "channel_message",
+          "selected_api": "SlackAPI",
+          "title": null,
+          "authentication_id": "8a8f69f909a26bbac5f55580420d318d8c04f7b88dad642ba7387b517d44424c"
+        },
+        "17": {
+          "id": 17,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "delay_until_date": "{{8__start__dateTime_pretty}} +30m",
+            "handle_past": "1440"
+          },
+          "meta": {
+            "stepTitle": "Delay Until 30 Minutes After",
+            "parammap": {},
+            "selectedGives": {},
+            "validation": {
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true
+              },
+              "webhook": { "is_opened": false }
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 16,
+          "root_id": 8,
+          "action": "delay_until",
+          "selected_api": "DelayAPI",
+          "title": null,
+          "authentication_id": null
+        },
+        "18": {
+          "id": 18,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "unfurl": "false",
+            "thread_ts": "{{11__ts}}",
+            "as_bot": "yes",
+            "icon": ":full_moon:",
+            "add_edit_link": "true",
+            "channel": "C024Y16JP",
+            "reply_broadcast": "false",
+            "username": "BigGroup™ Bot",
+            "link_names": "yes",
+            "text": "@group-productdesign - TIMES UP! Follow up in the thread with any quesitons or action items."
+          },
+          "meta": {
+            "stepTitle": "Follow Up Reminder (Thread)",
+            "parammap": {},
+            "selectedGives": {},
+            "validation": {
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true
+              },
+              "webhook": { "is_opened": false }
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 17,
+          "root_id": 8,
+          "action": "channel_message",
+          "selected_api": "SlackAPI",
+          "title": null,
+          "authentication_id": "bb189207feca2e2a52a67f931d164f72ec7c8ad9b024353f9285d153f293e09b"
+        }
+      }
+    }
+  ]
+}

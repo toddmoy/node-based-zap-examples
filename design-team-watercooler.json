@@ -1,0 +1,171 @@
+{
+  "metadata": { "version": 2 },
+  "zaps": [
+    {
+      "id": 4,
+      "title": "Design Team Watercooler",
+      "nodes": {
+        "4": {
+          "id": 4,
+          "paused": false,
+          "type_of": "read",
+          "params": { "dow": "Friday", "hod": "8am" },
+          "meta": {
+            "parammap": { "dow": "", "hod": "" },
+            "validation": {
+              "params": {
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true,
+                "invalid_mappings": {}
+              },
+              "action": { "is_opened": true },
+              "webhook": { "is_opened": false }
+            },
+            "selectedGives": {}
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": null,
+          "root_id": null,
+          "action": "every_week",
+          "selected_api": "ScheduleAPI",
+          "title": "Design Team Watercooler",
+          "authentication_id": null
+        },
+        "5": {
+          "id": 5,
+          "paused": true,
+          "type_of": "search",
+          "params": {
+            "lookup_key": "COL$B",
+            "spreadsheet": "1KiB1x2mudOk296gWIn_i4-eX4VMCjrozNeI6_1wBnco",
+            "worksheet": 0,
+            "lookup_value": "N"
+          },
+          "meta": {
+            "validation": {
+              "webhook": { "is_opened": false },
+              "params": {
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true,
+                "invalid_mappings": {}
+              },
+              "action": { "is_opened": true }
+            },
+            "parammap": {
+              "lookup_key": "Used?",
+              "spreadsheet": "Design Team Watercooler",
+              "worksheet": "Sheet1"
+            },
+            "selectedGives": {}
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 4,
+          "root_id": 4,
+          "action": "lookup_row",
+          "selected_api": "GoogleSheetsV2API",
+          "title": null,
+          "authentication_id": "a5f070322da4c81ae255088a4ebdf6e391f7a24107109f4572d29a68735de5ae"
+        },
+        "6": {
+          "id": 6,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "channel": "C024Y16JP",
+            "as_bot": "yes",
+            "username": "QBot",
+            "reply_broadcast": "no",
+            "icon": ":watercooler:",
+            "unfurl": "yes",
+            "text": ":wave: Happy Friday @group-productdesign :yay-frog:\n\n1. What are you doing this weekend?\n2. {{5__COL$A}}",
+            "add_edit_link": "false",
+            "link_names": "yes"
+          },
+          "meta": {
+            "selectedGives": { "73159582__COL$A": "Questions" },
+            "validation": {
+              "params": {
+                "is_edited": true,
+                "is_valid": true,
+                "invalid_mappings": {},
+                "is_opened": true
+              },
+              "action": { "is_opened": true },
+              "webhook": { "is_opened": false }
+            },
+            "parammap": { "channel": "design" }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 5,
+          "root_id": 4,
+          "action": "channel_message",
+          "selected_api": "SlackAPI",
+          "title": null,
+          "authentication_id": "8a8f69f909a26bbac5f55580420d318d8c04f7b88dad642ba7387b517d44424c"
+        },
+        "7": {
+          "id": 7,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "spreadsheet": "1KiB1x2mudOk296gWIn_i4-eX4VMCjrozNeI6_1wBnco",
+            "worksheet": 0,
+            "COL$B": "Yes",
+            "row": "{{5__id}}"
+          },
+          "meta": {
+            "validation": {
+              "params": {
+                "is_edited": true,
+                "is_valid": true,
+                "is_opened": true,
+                "invalid_mappings": {}
+              },
+              "action": { "is_opened": true },
+              "webhook": { "is_opened": false }
+            },
+            "selectedGives": { "73159582__id": "ID" },
+            "parammap": {
+              "spreadsheet": "Design Team Watercooler",
+              "worksheet": "Sheet1",
+              "row": ""
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 6,
+          "root_id": 4,
+          "action": "update_row",
+          "selected_api": "GoogleSheetsV2API",
+          "title": null,
+          "authentication_id": "a5f070322da4c81ae255088a4ebdf6e391f7a24107109f4572d29a68735de5ae"
+        }
+      }
+    }
+  ]
+}
