@@ -2,7 +2,7 @@
 
 ## Comparison
 
-Here are some keys that _seem_ similar between current zap exports and ZDL 0.2. At this time, don't assume similar sounding things are definitely the same.
+Here are some keys that _seem_ similar between current zap exports and [ZDL 0.2](https://github.com/zapier/zdl/blob/master/version_0.2.md). At this time, don't assume similar sounding things are definitely the same.
 
 | 0.2               | Export            | Notes                                                   |
 |:------------------|:------------------|:--------------------------------------------------------|
@@ -19,5 +19,9 @@ Here are some keys that _seem_ similar between current zap exports and ZDL 0.2. 
 | params            | params            |                                                         |
 | steps             | nodes             | Steps are an array, nodes are a hash                    |
 | type              | type_of           |                                                         |
-| comment           |                   |                                                         |
-| zdl_version       |                   |                                                         |
+| comment           | -                 |                                                         |
+| zdl_version       | -                 |                                                         |
+
+**Other**
+
+- Curly syntax looks like it might differ a bit. Will we "upgrade" old zaps to the new syntax?
