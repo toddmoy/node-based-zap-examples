@@ -19,4 +19,5 @@ Here are some keys that _seem_ similar between current zap exports and ZDL 0.2. 
 | params            | params            |                                                         |
 | steps             | nodes             | Steps are an array, nodes are a hash                    |
 | type              | type_of           |                                                         |
-
+| comment           |                   |                                                         |
+| zdl_version       |                   |                                                         |
