@@ -2,6 +2,8 @@
 
 ## Comparison
 
+Here are some keys that _seem_ similar between current zap exports and ZDL 0.2. At this time, don't assume similar sounding things are definitely the same.
+
 | 0.2 K             | Export  K         | Notes                                                   |
 |:------------------|:------------------|:--------------------------------------------------------|
 | app               | selected_api      |                                                         |
