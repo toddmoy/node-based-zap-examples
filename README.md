@@ -87,3 +87,52 @@ There seems to be syntactical differences in how a [curlie / reference](https://
 
 - Will existing Zaps need to be modded to use the new syntax? 
 - Is the Editor responsible for ensuring the uniqueness of `step_id`s? 
+
+## `paused`
+
+Node-based steps contain a `paused` boolean. What's this used for? 
+
+## `type_of`
+
+Node based steps contain a `type_of` key that contains a value like: `read`, `write`, `filter`. In O.2, it seems the equivalent step key is `type`.
+
+
+## `params`
+
+These look similar across both 0.2 and node-based zaps. Note: the examples are not 1:1 comparisons.
+
+0.2: 
+
+```
+"params": {
+  "as_bot": "yes",
+  "add_edit_link": "yes",
+  "unfurl": "yes",
+  "link_names": "yes",
+  "reply_broadcast": "no",
+  "channel": "CHTQUD329",
+  "text": "Today's forecast: {{weather_trigger__summary}}"
+}
+```
+
+Nodes:
+
+```
+"params": {
+  "unfurl": "false",
+  "thread_ts": "{{11__ts}}",
+  "as_bot": "yes",
+  "icon": ":full_moon:",
+  "add_edit_link": "true",
+  "channel": "C024Y16JP",
+  "reply_broadcast": "no",
+  "username": "BigGroup™ Bot",
+  "link_names": "yes",
+  "text": "In 1 day, we'll all meet together as a BigGroup™ \n\nThis is a time to get feedback, brainstorm, get help with tedious work, discuss tools/techniques, do a retro, etc.\n\nThere is a different leader each week who will bring something to the group. @ev will be posting who the leader is here shortly. If he's OOO - please refer to the schedule here https://coda.io/d/Design-Team_dATDb-6dfPV/Review-Collabs_suB3j#_lu3qc"
+},
+```
+
+**Questions:**
+
+* Any structural changes to this block?
+
