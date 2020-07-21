@@ -64,6 +64,21 @@ Contains content like:
 },
 ```
 
-**Other**
+### `parent_id`, `root_id`
 
-- Curly syntax looks like it might differ a bit. Will we "upgrade" old zaps to the new syntax?
+It looks like these are used to define the execution path. I think 0.2 intuits the dependency graph, which might be the reason we don't see these explicit keys.
+
+### Curlies
+
+There seems to be syntactical differences in how a curlie / reference is constructed. 
+
+[0.2 curlie](https://github.com/zapier/zdl/blob/master/version_0.2.md#using-curlies-to-reference-step-outputs-in-params):
+
+`{{weather_trigger__summary}}`
+
+Node-based curlie: 
+
+`{{8__start__dateTime_pretty}}`
+
+> Will existing Zaps need to be modded to use the new syntax? 
+> Is the Editor responsible for ensuring the uniqueness of `step_id`s? 
