@@ -71,7 +71,7 @@ I think 0.2 intuits the dependency graph, which might be the reason we don't see
 
 ## Curlies
 
-There seems to be syntactical differences in how a curlie / reference is constructed. Both embed an `id` of another step, but 0.2 seems to use alphanumeric ids whereas node-based curlies use integers. There may be differences in the use of underscores and dashes, though it does seem `__` are used to separate ids from field names.
+There seems to be syntactical differences in how a curlie / reference is constructed. Both embed an `id` of another step, but 0.2 seems to use alphanumeric ids whereas node-based curlies use integers. There may be differences in the use of underscores and dashes, though it does seem `__` is used by both to separate ids from field names.
 
 [0.2 curlie](https://github.com/zapier/zdl/blob/master/version_0.2.md#using-curlies-to-reference-step-outputs-in-params):
 
