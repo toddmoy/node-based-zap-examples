@@ -72,7 +72,7 @@ I think 0.2 intuits the dependency graph, which might be the reason we don't see
 
 **Questions**
 
-- Assume we have a Zap with multiple actions, none of which reference each other via curlies. In this situation, there's no dependency-based ordering we can intuit. Do we assume that the order from the `steps` array is how it should be presented in the editor?   
+- Assume we have a Zap with multiple actions, none of which reference each other via curlies. In this situation, there's no dependency-based ordering we can intuit. Do we assume that the order from the `steps` array is how it should be presented in the editor? Does the engine execute in that order too? I'm thinking about delay step, for example.
 
 
 ## Curlies
