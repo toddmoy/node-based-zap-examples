@@ -64,9 +64,13 @@ Contains content like:
 },
 ```
 
+<detail>
+<summary>
 ### `parent_id`, `root_id`
-
+  </summary>
+  
 It looks like these are used to define the execution path. I think 0.2 intuits the dependency graph, which might be the reason we don't see these explicit keys.
+</detail>
 
 ### Curlies
 
