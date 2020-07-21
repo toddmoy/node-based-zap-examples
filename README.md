@@ -96,6 +96,13 @@ Node-based steps contain a `paused` boolean. What's this used for?
 
 Node based steps contain a `type_of` key that contains a value like: `read`, `write`, `filter`. In O.2, it seems the equivalent step key is `type`.
 
+## `app` vs `selected_api`
+
+Both of these seem to define the vendor app to be used.
+
+## Array vs Hash
+
+0.2 defines `steps` as an array whereas node-based Zaps defined `nodes` in a dictionary/hash.
 
 ## `params`
 
@@ -135,4 +142,6 @@ Nodes:
 **Questions:**
 
 * Any structural changes to this block?
+
+
 
