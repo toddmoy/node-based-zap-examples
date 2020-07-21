@@ -1,6 +1,6 @@
 # README
 
-I randomly [exported some Zaps](https://github.com/toddmoy/node-based-zap-examples/tree/master/set-1) and peeked at what the json contained. There are some differences, which may have been discussed/resolved unbeknownst to me. I'm listing them out there just for discussion. 
+I randomly [exported some Zaps](https://github.com/toddmoy/node-based-zap-examples/tree/master/set-1) and compared them to [0.2 examples](https://github.com/zapier/zdl/blob/master/version_0.2.md). There are some differences between the two formats, which may have been discussed/resolved unbeknownst to me. I figured I'd post this up just to make sure we've covered these bases.
 
 **Key comparison**
 
