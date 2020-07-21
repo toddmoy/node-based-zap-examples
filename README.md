@@ -1,5 +1,8 @@
 # README
 
+I randomly exported some Zaps and peeked at what the json contained. 
+
+
 ## Comparison
 
 Here are some keys that _seem_ similar between [some node-based exports](https://github.com/toddmoy/node-based-zap-examples/tree/master/set-1) and [ZDL 0.2](https://github.com/zapier/zdl/blob/master/version_0.2.md). At this time, don't assume similar sounding things are _definitely_ the same.
