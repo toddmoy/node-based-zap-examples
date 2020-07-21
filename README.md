@@ -1,29 +1,26 @@
 # README
 
-I randomly exported some Zaps and peeked at what the json contained. 
+I randomly [exported some Zaps](https://github.com/toddmoy/node-based-zap-examples/tree/master/set-1) and compared them to [0.2 examples](https://github.com/zapier/zdl/blob/master/version_0.2.md). There are some differences between the two formats, which may have been discussed/resolved unbeknownst to me. I figured I'd post this up just to make sure we've covered these bases.
 
+**Key comparison**
 
-## Comparison
-
-Here are some keys that _seem_ similar between [some node-based exports](https://github.com/toddmoy/node-based-zap-examples/tree/master/set-1) and [ZDL 0.2](https://github.com/zapier/zdl/blob/master/version_0.2.md). At this time, don't assume similar sounding things are _definitely_ the same.
-
-| 0.2               | Nodes             | Notes                                                   |
-|:------------------|:------------------|:--------------------------------------------------------|
-| -                 | meta              | validations, selectedGives, parammap                    |
-| -                 | parent_id         |                                                         |
-| -                 | paused            |                                                         |
-| -                 | root_id           | Usage of `id` in 0.2 might render this unnecessary?     |
-| -                 | title             |                                                         |
-| -                 | tripleStores      |                                                         |
-| action            | action            | Meaning might slightly differ. See `series_skip_errors` |
-| app               | selected_api      |                                                         |
-| authentication_id | authentication_id | Syntax differs                                          |
-| id                | id                | Syntax differs                                          |
-| params            | params            |                                                         |
-| steps             | nodes             | Steps are an array, nodes are a hash                    |
-| type              | type_of           |                                                         |
-| comment           | -                 |                                                         |
-| zdl_version       | -                 |                                                         |
+| 0.2               | Nodes             |
+|:------------------|:------------------|
+| -                 | meta              |
+| -                 | parent_id         |
+| -                 | root_id           |
+| -                 | paused            |
+| -                 | title             |
+| -                 | tripleStores      |
+| action            | action            |
+| app               | selected_api      |
+| authentication_id | authentication_id |
+| id                | id                |
+| params            | params            |
+| steps             | nodes             |
+| type              | type_of           |
+| comment           | -                 |
+| zdl_version       | -                 |
 
 
 ## `meta`
@@ -48,9 +45,15 @@ Contains content like:
 },
 ```
 
+**Questions:**
+
+* Is this information stored outside of ZDL? 
+  * We've discussed the need for `stepTitle` in previous conversations.
+  * I recall we decided that UI state--which _is_opened_ seems to be--shouldn't be stored in ZDL. 
+
 ## `triple_stores`
 
-I'm not sure what this is used for. It doesn't seem to be sample data and I don't think it's modifiable in the UI. It contains content like: 
+It contains content like: 
 
 ```
 "triple_stores": {
@@ -62,17 +65,22 @@ I'm not sure what this is used for. It doesn't seem to be sample data and I don'
 },
 ```
 
+**Questions:**
+
+- What's this used for? It doesn't seem to be sample data and I don't think it's modifiable in the UI. 
+
 ## `id`, `parent_id`, `root_id`
   
-It looks like these are used to define the execution path. Values are either `null` or an integer referencing a `step_id`. 
+It looks like these are used to explicitly define the execution path. Values are either `null` or an integer referencing a `step_id`. 
 
-I think 0.2 intuits the dependency graph, which might be the reason we don't see these explicit keys. 
+I think 0.2 intuits the dependency graph, which obviates (I think?) the need for explicit keys. 
 
-> [0.1 RFC](https://docs.google.com/document/d/1x7qSOrOUSsGOGIs5c0NoZpBVrgNySla3su-DK1wVbsI/edit#): _ The id property is optional, and it can be user-defined. (Or defined by a tool like the editor.) There's no requirement to retrieve an id from the server for each task like there is with nodes in the current model ... You can also see that there is no explicit graph here. There is no children_ids or parent_id or similar pointer from one task to another. Instead, the data flow is implicit based on the nesting and the ordering characteristics determined by parent tasks._
+> [0.1 RFC](https://docs.google.com/document/d/1x7qSOrOUSsGOGIs5c0NoZpBVrgNySla3su-DK1wVbsI/edit#): _The id property is optional, and it can be user-defined. (Or defined by a tool like the editor.) There's no requirement to retrieve an id from the server for each task like there is with nodes in the current model ... You can also see that there is no explicit graph here. There is no children_ids or parent_id or similar pointer from one task to another. Instead, the data flow is implicit based on the nesting and the ordering characteristics determined by parent tasks._
 
 **Questions**
 
-- Assume we have a Zap with multiple actions, none of which reference each other via curlies. In this situation, there's no dependency-based ordering we can intuit. Do we assume that the order from the `steps` array is how it should be presented in the editor? Does the engine execute in that order too? I'm thinking about delay step, for example.
+- Assume we have a Zap with multiple actions, none of which reference each other via curlies. In this situation, it doesn't seem like we have any information aside from array position to tell us how to order the actions.
+  - Do we assume that the order from the `steps` array is how it should be presented in the editor? If so, is there a guarantee that the engine executes in that order too? I'm thinking about cases when ordering might matter -- such as when a delay step is used.
 
 
 ## Curlies
@@ -87,6 +95,7 @@ There seems to be syntactical differences in how a [curlie / reference](https://
 
 - Will existing Zaps need to be modded to use the new syntax? 
 - Is the Editor responsible for ensuring the uniqueness of `step_id`s? 
+- Are step `id`s optional in 0.2? If so, how would curlies work when that K/V is omitted?
 
 ## `paused`
 
@@ -94,11 +103,11 @@ Node-based steps contain a `paused` boolean. What's this used for?
 
 ## `type` vs `type_of`
 
-Node based steps contain a `type_of` key that contains a value like: `read`, `write`, `filter`. In O.2, it seems the equivalent step key is `type`. Is this accurate? 
+Node based steps contain a `type_of` key that contains a value like: `read`, `write`, `filter`. In 0.2, it seems the equivalent step key is `type`. Is this accurate? 
 
 ## `app` vs `selected_api`
 
-Both of these seem to define the vendor app to be used. Is this accurate? 
+Both of these seem to define the vendor app to be used. I don't notice any real differences in how they're used. Is this accurate? 
 
 ## `authentication_id`
 
