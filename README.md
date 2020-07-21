@@ -68,8 +68,7 @@ It looks like these are used to define the execution path. Values are either `nu
 
 I think 0.2 intuits the dependency graph, which might be the reason we don't see these explicit keys. 
 
-> From [0.1 RFC](https://docs.google.com/document/d/1x7qSOrOUSsGOGIs5c0NoZpBVrgNySla3su-DK1wVbsI/edit#): 
-> _You can also see that there is no explicit graph here. There is no children_ids or parent_id or similar pointer from one task to another. Instead, the data flow is implicit based on the nesting and the ordering characteristics determined by parent tasks._
+> [0.1 RFC](https://docs.google.com/document/d/1x7qSOrOUSsGOGIs5c0NoZpBVrgNySla3su-DK1wVbsI/edit#): _You can also see that there is no explicit graph here. There is no children_ids or parent_id or similar pointer from one task to another. Instead, the data flow is implicit based on the nesting and the ordering characteristics determined by parent tasks._
 
 **Questions**
 
