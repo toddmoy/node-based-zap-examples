@@ -81,7 +81,7 @@ I think 0.2 intuits the dependency graph, which obviates (I think?) the need for
 **Questions**
 
 - Assume we have a Zap with multiple actions, none of which reference each other via curlies. In this situation, it doesn't seem like we have any information aside from array position to tell us how to order the actions.
-  - Do we assume that the order from the `steps` array is how it should be presented in the editor? If so, is there a guarantee that the engine executes in that order too? I'm thinking about cases when ordering might matter -- such as when a delay step is used.
+  - It sounds like Zaps execute steps in the order encountered. Just want to confirm that the order a user sees is also the order it executes in.
 
 
 ## Curlies
