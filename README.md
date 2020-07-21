@@ -50,7 +50,7 @@ Contains content like:
 
 ## `triple_stores`
 
-Contains content like: 
+I'm not sure what this is used for. It doesn't seem to be sample data and I don't think it's modifiable in the UI. It contains content like: 
 
 ```
 "triple_stores": {
@@ -64,9 +64,13 @@ Contains content like:
 
 ## `parent_id`, `root_id`
   
-It looks like these are used to define the execution path. Both may be `null` or an integer of another step. 
+It looks like these are used to define the execution path. Values are either `null` or an integer referencing a `step_id`. 
 
 I think 0.2 intuits the dependency graph, which might be the reason we don't see these explicit keys. 
+
+> _You can also see that there is no explicit graph here. There is no children_ids or parent_id or similar pointer from one task to another. Instead, the data flow is implicit based on the nesting and the ordering characteristics determined by parent tasks. [Source](https://docs.google.com/document/d/1x7qSOrOUSsGOGIs5c0NoZpBVrgNySla3su-DK1wVbsI/edit#)_
+
+- [ ] If you have a Zap with multiple actions -- none of which reference each other via curlies -- do we assume that the ordering in the `steps` array is how it should be presented in the editor?   
 
 
 ## Curlies
