@@ -62,13 +62,13 @@ I'm not sure what this is used for. It doesn't seem to be sample data and I don'
 },
 ```
 
-## `parent_id`, `root_id`
+## `id`, `parent_id`, `root_id`
   
 It looks like these are used to define the execution path. Values are either `null` or an integer referencing a `step_id`. 
 
 I think 0.2 intuits the dependency graph, which might be the reason we don't see these explicit keys. 
 
-> [0.1 RFC](https://docs.google.com/document/d/1x7qSOrOUSsGOGIs5c0NoZpBVrgNySla3su-DK1wVbsI/edit#): _You can also see that there is no explicit graph here. There is no children_ids or parent_id or similar pointer from one task to another. Instead, the data flow is implicit based on the nesting and the ordering characteristics determined by parent tasks._
+> [0.1 RFC](https://docs.google.com/document/d/1x7qSOrOUSsGOGIs5c0NoZpBVrgNySla3su-DK1wVbsI/edit#): _ The id property is optional, and it can be user-defined. (Or defined by a tool like the editor.) There's no requirement to retrieve an id from the server for each task like there is with nodes in the current model ... You can also see that there is no explicit graph here. There is no children_ids or parent_id or similar pointer from one task to another. Instead, the data flow is implicit based on the nesting and the ordering characteristics determined by parent tasks._
 
 **Questions**
 
@@ -79,9 +79,9 @@ I think 0.2 intuits the dependency graph, which might be the reason we don't see
 
 There seems to be syntactical differences in how a [curlie / reference](https://github.com/zapier/zdl/blob/master/version_0.2.md#using-curlies-to-reference-step-outputs-in-params) is constructed. Both embed an `id` of another step, but 0.2 seems to use alphanumeric ids whereas node-based curlies use integers. There may be differences in the use of underscores and dashes, though it does seem `__` is used by both to separate ids from field names.
 
-| 0.2 | Node |
-| :-  | :- | 
-| `{{weather_trigger__summary}}`|`{{8__start__dateTime_pretty}}`|
+| 0.2                            | Node                            |
+|:-------------------------------|:--------------------------------|
+| `{{weather_trigger__summary}}` | `{{8__start__dateTime_pretty}}` |
 
 **Questions**
 
@@ -92,17 +92,25 @@ There seems to be syntactical differences in how a [curlie / reference](https://
 
 Node-based steps contain a `paused` boolean. What's this used for? 
 
-## `type_of`
+## `type` vs `type_of`
 
-Node based steps contain a `type_of` key that contains a value like: `read`, `write`, `filter`. In O.2, it seems the equivalent step key is `type`.
+Node based steps contain a `type_of` key that contains a value like: `read`, `write`, `filter`. In O.2, it seems the equivalent step key is `type`. Is this accurate? 
 
 ## `app` vs `selected_api`
 
-Both of these seem to define the vendor app to be used.
+Both of these seem to define the vendor app to be used. Is this accurate? 
+
+## `authentication_id`
+
+The syntax for these values might be different. One looks like a hexidecimal string and the other an integer.
+
+| 0.2        | Node                                                               |
+|:-----------|:-------------------------------------------------------------------|
+| `16231265` | `8259fdb1e0119a59d6fe35bea72f640e8a2afa2ae8a6e7ac6130386b44a9d604` |
 
 ## Array vs Hash
 
-0.2 defines `steps` as an array whereas node-based Zaps defined `nodes` in a dictionary/hash.
+0.2 defines `steps` as an array whereas node-based Zaps defined `nodes` in a dictionary/hash. Does this introduce any challenges for Editor? 
 
 ## `params`
 
