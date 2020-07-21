@@ -168,6 +168,8 @@ Nodes:
 
 In 0.2, BranchingAPI is type `filter` and contains embedded filter criteria within `params`. In Nodes, BranchingAPI is type `write` and a Filter app is enforced by the Editor to be the first step "within" a branch.
 
+[Filter composition](https://github.com/zapier/zdl/blob/master/version_0.2.md#compatibility-with-legacy-filter-by-zapier) seems the same in both formats. 
+
 
 
 
