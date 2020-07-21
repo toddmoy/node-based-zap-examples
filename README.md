@@ -147,6 +147,14 @@ Nodes:
 },
 ```
 
+## Nesting & Paths
+
+0.2 introduces a nesting model, which changes the structure of data in Paths. Historically (factcheck me), Nodes represented all steps at the same level of indenture. `parent_id` / `root_id` was used to specify which branches and steps were evaluated. 
+
+## Paths `type`
+
+In 0.2, BranchingAPI is type `filter` and contains embedded filter criteria within `params`. In Nodes, BranchingAPI is type `write` and a Filter app is assumed to be the first step "within" a branch.
+
 **Questions:**
 
 * Any structural changes to this block?
