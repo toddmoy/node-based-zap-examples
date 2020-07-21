@@ -103,7 +103,7 @@ Node-based steps contain a `paused` boolean. What's this used for?
 
 ## `type` vs `type_of`
 
-Node based steps contain a `type_of` key that contains a value like: `read`, `write`, `filter`. In O.2, it seems the equivalent step key is `type`. Is this accurate? 
+Node based steps contain a `type_of` key that contains a value like: `read`, `write`, `filter`. In 0.2, it seems the equivalent step key is `type`. Is this accurate? 
 
 ## `app` vs `selected_api`
 
