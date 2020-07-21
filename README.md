@@ -81,7 +81,7 @@ There seems to be syntactical differences in how a [curlie / reference](https://
 
 | 0.2 | Node |
 | :-  | :- | 
-| {{weather_trigger__summary}}|{{8__start__dateTime_pretty}}|
+| `{{weather_trigger__summary}}`|`{{8__start__dateTime_pretty}}`|
 
 **Questions**
 
