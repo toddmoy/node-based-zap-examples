@@ -1,0 +1,232 @@
+{
+  "metadata": { "version": 2 },
+  "zaps": [
+    {
+      "id": 1,
+      "title": "Add Saved Slack Messages to Todoist",
+      "nodes": {
+        "1": {
+          "id": 1,
+          "paused": false,
+          "type_of": "read",
+          "params": {},
+          "meta": {
+            "parammap": {},
+            "selectedGives": {},
+            "validation": {
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": false
+              }
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": null,
+          "root_id": null,
+          "action": "star_added",
+          "selected_api": "SlackAPI",
+          "title": "Add Saved Slack Messages to Todoist",
+          "authentication_id": "2c4df3b359d79b4009371ee41381d0f622b94ee218a75fd9fe0d661ccf19f276"
+        },
+        "2": {
+          "id": 2,
+          "paused": true,
+          "type_of": "write",
+          "params": {},
+          "meta": {},
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 1,
+          "root_id": 1,
+          "action": "branch",
+          "selected_api": "BranchingAPI",
+          "title": null,
+          "authentication_id": null
+        },
+        "3": {
+          "id": 3,
+          "paused": true,
+          "type_of": "filter",
+          "params": {
+            "emoji": "A",
+            "color": "Heroine Blue",
+            "filter_criteria": [
+              {
+                "id": 87970710990459,
+                "group": 2114144001153373,
+                "key": "1__channel__name",
+                "value": "editor",
+                "match": "icontains",
+                "action": "continue"
+              }
+            ]
+          },
+          "meta": {
+            "stepTitle": "Path A",
+            "parammap": {},
+            "selectedGives": {},
+            "validation": {
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true
+              }
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 2,
+          "root_id": 1,
+          "action": "filter",
+          "selected_api": "BranchingAPI",
+          "title": null,
+          "authentication_id": null
+        },
+        "4": {
+          "id": 4,
+          "paused": true,
+          "type_of": "filter",
+          "params": {
+            "emoji": "B",
+            "color": "Peru",
+            "filter_criteria": [
+              {
+                "id": 2152046365329533,
+                "group": 3069548225633093,
+                "key": "1__channel__name",
+                "value": "editor",
+                "match": "icontains",
+                "action": "stop"
+              }
+            ]
+          },
+          "meta": {
+            "stepTitle": "Path B",
+            "parammap": {},
+            "selectedGives": {},
+            "validation": {
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true
+              }
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 2,
+          "root_id": 1,
+          "action": "filter",
+          "selected_api": "BranchingAPI",
+          "title": null,
+          "authentication_id": null
+        },
+        "5": {
+          "id": 5,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "priority": "1",
+            "content": "Slack 💬  from {{1__user__name}}",
+            "note": "{{1__text}}",
+            "project_id": 377061993,
+            "labels": [2154105196]
+          },
+          "meta": {
+            "parammap": { "project_id": "Inbox", "labels": ["Slack"] },
+            "selectedGives": {
+              "93997858__user__name": "User Name",
+              "93997858__text": "Text"
+            },
+            "validation": {
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true
+              }
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 4,
+          "root_id": 1,
+          "action": "new_task",
+          "selected_api": "TodoistV2DevAPI",
+          "title": null,
+          "authentication_id": "7f6d1d2ddc659857812480c2ce69ff70b5be6269a7e1665a6e7e09b47fe6a649"
+        },
+        "6": {
+          "id": 6,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "priority": "1",
+            "content": "Slack 💬  from {{1__user__name}} ",
+            "note": "{{1__text}}",
+            "project_id": 2228042278,
+            "labels": [2154105196]
+          },
+          "meta": {
+            "parammap": { "project_id": "Zapier Inbox", "labels": ["Slack"] },
+            "selectedGives": {
+              "93997858__user__name": "User Name",
+              "93997858__text": "Text"
+            },
+            "validation": {
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true
+              }
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 3,
+          "root_id": 1,
+          "action": "new_task",
+          "selected_api": "TodoistV2DevAPI",
+          "title": null,
+          "authentication_id": "7f6d1d2ddc659857812480c2ce69ff70b5be6269a7e1665a6e7e09b47fe6a649"
+        }
+      }
+    }
+  ]
+}
