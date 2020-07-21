@@ -79,13 +79,9 @@ I think 0.2 intuits the dependency graph, which might be the reason we don't see
 
 There seems to be syntactical differences in how a [curlie / reference](https://github.com/zapier/zdl/blob/master/version_0.2.md#using-curlies-to-reference-step-outputs-in-params) is constructed. Both embed an `id` of another step, but 0.2 seems to use alphanumeric ids whereas node-based curlies use integers. There may be differences in the use of underscores and dashes, though it does seem `__` is used by both to separate ids from field names.
 
-_0.2 curlie:_
-
-`{{weather_trigger__summary}}`
-
-_Node-based curlie:_
-
-`{{8__start__dateTime_pretty}}`
+| 0.2 | Node |
+| :-  | :- | 
+| {{weather_trigger__summary}}|{{8__start__dateTime_pretty}}|
 
 **Questions**
 
