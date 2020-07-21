@@ -70,20 +70,24 @@ I think 0.2 intuits the dependency graph, which might be the reason we don't see
 
 > _You can also see that there is no explicit graph here. There is no children_ids or parent_id or similar pointer from one task to another. Instead, the data flow is implicit based on the nesting and the ordering characteristics determined by parent tasks. [Source](https://docs.google.com/document/d/1x7qSOrOUSsGOGIs5c0NoZpBVrgNySla3su-DK1wVbsI/edit#)_
 
-- [ ] If you have a Zap with multiple actions -- none of which reference each other via curlies -- do we assume that the ordering in the `steps` array is how it should be presented in the editor?   
+**Questions**
+
+- Assume we have a Zap with multiple actions, none of which reference each other via curlies. In this situation, there's no dependency-based ordering we can intuit. Do we assume that the order from the `steps` array is how it should be presented in the editor?   
 
 
 ## Curlies
 
 There seems to be syntactical differences in how a curlie / reference is constructed. Both embed an `id` of another step, but 0.2 seems to use alphanumeric ids whereas node-based curlies use integers. There may be differences in the use of underscores and dashes, though it does seem `__` is used by both to separate ids from field names.
 
-**[0.2 curlie](https://github.com/zapier/zdl/blob/master/version_0.2.md#using-curlies-to-reference-step-outputs-in-params):**
+_[0.2 curlie](https://github.com/zapier/zdl/blob/master/version_0.2.md#using-curlies-to-reference-step-outputs-in-params):_
 
 `{{weather_trigger__summary}}`
 
-**Node-based curlie:** 
+_Node-based curlie:_
 
 `{{8__start__dateTime_pretty}}`
 
-- [ ] Will existing Zaps need to be modded to use the new syntax? 
-- [ ] Is the Editor responsible for ensuring the uniqueness of `step_id`s? 
+**Questions**
+
+- Will existing Zaps need to be modded to use the new syntax? 
+- Is the Editor responsible for ensuring the uniqueness of `step_id`s? 
