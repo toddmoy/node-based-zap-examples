@@ -68,6 +68,7 @@ It contains content like:
 **Questions:**
 
 - What's this used for? It doesn't seem to be sample data and I don't think it's modifiable in the UI. 
+  - If a Zap is copied, `copied_from` contains a reference to its origin.
 
 ## `id`, `parent_id`, `root_id`
   

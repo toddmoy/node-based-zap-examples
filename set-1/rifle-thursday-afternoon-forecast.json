@@ -1,0 +1,142 @@
+{
+  "metadata": { "version": 2 },
+  "zaps": [
+    {
+      "id": 1,
+      "title": "Rifle Thursday Afternoon Forecast",
+      "nodes": {
+        "1": {
+          "id": 1,
+          "paused": true,
+          "type_of": "read",
+          "params": { "dow": "Thursday", "hod": "3pm" },
+          "meta": {
+            "validation": {
+              "action": { "is_opened": true },
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true
+              },
+              "webhook": { "is_opened": false }
+            },
+            "parammap": { "dow": "", "hod": "" },
+            "selectedGives": {}
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": null,
+          "root_id": null,
+          "action": "every_week",
+          "selected_api": "ScheduleAPI",
+          "title": "Rifle Thursday Afternoon Forecast",
+          "authentication_id": null
+        },
+        "2": {
+          "id": 2,
+          "paused": true,
+          "type_of": "filter",
+          "params": {
+            "filter_criteria": [
+              {
+                "action": "continue",
+                "group": 2320931379795235,
+                "id": 695221001557251,
+                "key": "75467864__temperatureHigh",
+                "match": "igreater",
+                "value": "45"
+              },
+              {
+                "action": "continue",
+                "group": 2320931379795235,
+                "id": 2260185843051945,
+                "key": "75467864__precipProbability",
+                "match": "iless",
+                "value": "50"
+              }
+            ]
+          },
+          "meta": {
+            "validation": {
+              "action": { "is_opened": true },
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true
+              },
+              "webhook": { "is_opened": false }
+            },
+            "parammap": { "key": "", "match": "" },
+            "selectedGives": {}
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 1,
+          "root_id": 1,
+          "action": "filter",
+          "selected_api": "FilterAPI",
+          "title": null,
+          "authentication_id": null
+        },
+        "3": {
+          "id": 3,
+          "paused": true,
+          "type_of": "write",
+          "params": {
+            "as_bot": "yes",
+            "add_edit_link": "yes",
+            "unfurl": "yes",
+            "link_names": "yes",
+            "channel": "UR89RTNAK",
+            "text": "Rifle is looking 👌🏼 this weekend. High of {{75467864__temperatureHigh}}º and low of {{75467864__temperatureLow}}º with {{75467864__precipProbability}} chance of precipitation. ",
+            "username": "RifleBot",
+            "icon": ":robot_face:"
+          },
+          "meta": {
+            "validation": {
+              "action": { "is_opened": true },
+              "params": {
+                "invalid_mappings": {},
+                "is_opened": true,
+                "is_valid": true,
+                "is_edited": true
+              },
+              "webhook": { "is_opened": false }
+            },
+            "parammap": { "channel": "Todd" },
+            "selectedGives": {
+              "75467864__temperatureHigh": "Temperature High",
+              "75467864__temperatureLow": "Temperature Low",
+              "75467864__precipProbability": "Precip Probability"
+            }
+          },
+          "triple_stores": {
+            "copied_from": null,
+            "created_by": null,
+            "polling_interval_override": 0,
+            "block_and_release_limit_override": 0,
+            "spread_tasks": 1
+          },
+          "parent_id": 2,
+          "root_id": 1,
+          "action": "direct_message",
+          "selected_api": "SlackAPI",
+          "title": null,
+          "authentication_id": null
+        }
+      }
+    }
+  ]
+}
