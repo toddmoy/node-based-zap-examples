@@ -47,7 +47,9 @@ Contains content like:
 
 **Questions:**
 
-* Is this information stored outside of ZDL? (I think I recall we decided that UI state00which _is_opened_ seems to be--shouldn't be.)
+* Is this information stored outside of ZDL? 
+  * We've discussed the need for `stepTitle` in previous conversations.
+  * I recall we decided that UI state--which _is_opened_ seems to be--shouldn't be stored in ZDL. 
 
 ## `triple_stores`
 
@@ -69,15 +71,16 @@ It contains content like:
 
 ## `id`, `parent_id`, `root_id`
   
-It looks like these are used to define the execution path. Values are either `null` or an integer referencing a `step_id`. 
+It looks like these are used to explicitly define the execution path. Values are either `null` or an integer referencing a `step_id`. 
 
-I think 0.2 intuits the dependency graph, which might be the reason we don't see these explicit keys. 
+I think 0.2 intuits the dependency graph, which obviates (I think?) the need for explicit keys. 
 
-> [0.1 RFC](https://docs.google.com/document/d/1x7qSOrOUSsGOGIs5c0NoZpBVrgNySla3su-DK1wVbsI/edit#): _ The id property is optional, and it can be user-defined. (Or defined by a tool like the editor.) There's no requirement to retrieve an id from the server for each task like there is with nodes in the current model ... You can also see that there is no explicit graph here. There is no children_ids or parent_id or similar pointer from one task to another. Instead, the data flow is implicit based on the nesting and the ordering characteristics determined by parent tasks._
+> [0.1 RFC](https://docs.google.com/document/d/1x7qSOrOUSsGOGIs5c0NoZpBVrgNySla3su-DK1wVbsI/edit#): _The id property is optional, and it can be user-defined. (Or defined by a tool like the editor.) There's no requirement to retrieve an id from the server for each task like there is with nodes in the current model ... You can also see that there is no explicit graph here. There is no children_ids or parent_id or similar pointer from one task to another. Instead, the data flow is implicit based on the nesting and the ordering characteristics determined by parent tasks._
 
 **Questions**
 
-- Assume we have a Zap with multiple actions, none of which reference each other via curlies. In this situation, there's no dependency-based ordering we can intuit. Do we assume that the order from the `steps` array is how it should be presented in the editor? Does the engine execute in that order too? I'm thinking about implications when ordering might matter -- such as when a delay step is used.
+- Assume we have a Zap with multiple actions, none of which reference each other via curlies. In this situation, it doesn't seem like we have any information aside from array position to tell us how to order the actions.
+  - Do we assume that the order from the `steps` array is how it should be presented in the editor? If so, is there a guarantee that the engine executes in that order too? I'm thinking about cases when ordering might matter -- such as when a delay step is used.
 
 
 ## Curlies
