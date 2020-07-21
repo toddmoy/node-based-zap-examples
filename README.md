@@ -26,15 +26,14 @@ Here are some keys that _seem_ similar between [some node-based exports](https:/
 | zdl_version       | -                 |                                                         |
 
 
-## Notes
-
-### `meta`
+## `meta`
 
 Contains content like: 
 
 ```
 "meta": {
-  "selectedGives": {},
+  "selectedGives": { "74319203__ts": "Ts" },
+  "parammap": { "thread_ts": "", "channel": "design" },
   "validation": {
     "action": { "is_opened": true },
     "params": {
@@ -45,12 +44,11 @@ Contains content like:
     },
     "webhook": { "is_opened": false }
   },
-  "parammap": { "time_unit": "", "calendarid": "#design Calendar" },
-  "stepTitle": "Trigger One Day Before Event"
-}
+  "stepTitle": "One Day Reminder (Thread)"
+},
 ```
 
-### `triple_stores`
+## `triple_stores`
 
 Contains content like: 
 
@@ -64,17 +62,16 @@ Contains content like:
 },
 ```
 
-<detail>
-<summary>
-### `parent_id`, `root_id`
-  </summary>
+## `parent_id`, `root_id`
   
-It looks like these are used to define the execution path. I think 0.2 intuits the dependency graph, which might be the reason we don't see these explicit keys.
-</detail>
+It looks like these are used to define the execution path. Both may be `null` or an integer of another step. 
 
-### Curlies
+I think 0.2 intuits the dependency graph, which might be the reason we don't see these explicit keys. 
 
-There seems to be syntactical differences in how a curlie / reference is constructed. 
+
+## Curlies
+
+There seems to be syntactical differences in how a curlie / reference is constructed. Both embed an `id` of another step, but 0.2 seems to use alphanumeric ids whereas node-based curlies use integers. There may be differences in the use of underscores and dashes, though it does seem `__` are used to separate ids from field names.
 
 [0.2 curlie](https://github.com/zapier/zdl/blob/master/version_0.2.md#using-curlies-to-reference-step-outputs-in-params):
 
